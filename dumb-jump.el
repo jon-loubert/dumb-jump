@@ -1236,6 +1236,20 @@ or most optimal searcher."
            :regex "JJJ\\s*:\\s*"
            :tests ("test  :"))
 
+    ;; sass
+    (:type "function" :supports ("ag" "grep" "rg" "git-grep") :language "sass"
+           :regex "[@mixin\\s|=]JJJ\\b\\s*\\\("
+           :tests ("@mixin test()"
+                   "=test"))
+
+    (:type "function" :supports ("ag" "grep" "rg" "git-grep") :language "sass"
+           :regex "@function\\sJJJ\\b\\s*\\\("
+           :tests ("@function test()"))
+
+    (:type "variable" :supports ("ag" "grep" "rg" "git-grep") :language "sass"
+           :regex "JJJ\\s*:\\s*"
+           :tests ("test  :"))
+
     ;; sml
     (:type "type" :supports ("ag" "grep" "rg" "git-grep") :language "sml"
            :regex "\\s*(data)?type\\s+.*\\bJJJ\\b"
@@ -1550,6 +1564,7 @@ or most optimal searcher."
     (:language "vhdl" :ext "vhd" :agtype "vhdl" :rgtype "vhdl")
     (:language "vhdl" :ext "vhdl" :agtype "vhdl" :rgtype "vhdl")
     (:language "scss" :ext "scss" :agtype "css" :rgtype "css")
+    (:language "sass" :ext "sass" :agtype "css" :rgtype "css")
     (:language "pascal" :ext "pas" :agtype "delphi" :rgtype nil)
     (:language "pascal" :ext "dpr" :agtype "delphi" :rgtype nil)
     (:language "pascal" :ext "int" :agtype "delphi" :rgtype nil)
@@ -2188,6 +2203,7 @@ current file."
     (:comment "//" :language "systemverilog")
     (:comment "--" :language "vhdl")
     (:comment "//" :language "scss")
+    (:comment "//" :language "sass")
     (:comment "//" :language "pascal")
     (:comment "//" :language "protobuf"))
   "List of one-line comments organized by language."
